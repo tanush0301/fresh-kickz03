@@ -1,0 +1,14 @@
+/fresh-kickz03
+    /index.html
+    /css
+        /styles.css
+    /js
+        /app.js
+        /cart.js
+        /checkout.js
+    /images
+        /shoe1.jpg (Product images)
+        /shoe2.jpg
+        /shoe3.jpg
+    /data
+        /products.json (Product details)
