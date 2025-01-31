@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fresh_kickz03 - Shoe Store</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <header>
-        <h1>Fresh_kickz03 - Exclusive Sneakers</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="checkout.html">Checkout</a>
-        </nav>
+        <div class="container">
+            <h1>Fresh_kickz03</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="checkout.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="products">
-        <!-- Product cards will be added dynamically via JavaScript -->
+    <!-- Main Section: Products -->
+    <section id="products" class="product-grid">
+        <!-- Products will be dynamically loaded here -->
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Fresh_kickz03</p>
+        <div class="container">
+            <p>&copy; 2025 Fresh_kickz03</p>
+        </div>
     </footer>
 
     <script src="js/app.js"></script>
