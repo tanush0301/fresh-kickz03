@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Fresh_kickz03</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <div id="cart-items"></div>
+
+    <button id="checkout-btn">Proceed to Payment</button>
+
+    <script>
+        const stripe = Stripe('your-public-stripe-key');  // Replace with your Stripe public key
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `${item.name} - $${item.price}`;
+                cartItemsDiv.appendChild(itemElement);
+            });
+        }
+
+        async function handleCheckout() {
+            const response = await fetch('/create-checkout-session', {
+                method: 'POST',
+            });
+            const session = await response.json();
+            stripe.redirectToCheckout({ sessionId: session.id });
+        }
+
+        document.getElementById('checkout-btn').addEventListener('click', handleCheckout);
+        window.onload = displayCart;
+    </script>
+</body>
+</html>
